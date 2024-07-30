@@ -7,24 +7,15 @@ export default function Comp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const validateEmail = (email) => {
-    return email.includes("@") && email.includes('.com');
+  const emailValidate = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
   };
 
   const validatePassword = (password) => {
-    let hasCapital=false;
-    let hasNumber=false;
-    let hasSymbol=false;
-
-    for (let char of password) {
-      if (char >= 'A' && char <= 'Z') {
-        hasCapital = true;
-      } else if (char >= '0' && char <= '9') {
-        hasNumber = true;
-      } else if (char.includes('!'&&'@'&&'#'&&'$'&&'%'&&'&')) {
-        hasSymbol = true;
-      }
-    }
+    const hasCapital = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     return { hasCapital, hasNumber, hasSymbol };
   };
 
@@ -41,7 +32,7 @@ export default function Comp() {
       {value.length > 10 && <p>You add more than 10 characters.</p>}
       <p>Enter your Email:</p>
       <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
-      {!validateEmail(email) && email.length > 0 && <p>Please enter a valid email.</p>}
+      {!emailValidate(email) && email.length > 0 && <p>Please enter a valid email.</p>}
       <p>Enter your Password:</p>
       <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
       {console.log(password)}
