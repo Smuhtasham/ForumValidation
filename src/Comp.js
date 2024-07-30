@@ -39,7 +39,7 @@ export default function Comp() {
 
   return (
     <div className="">
-      <div className="w-[20%] m-auto mt-10 gap-3 flex flex-col justify-center items-center py-6 border">
+      <div className="w-[20%] m-auto mt-10 gap-3 flex flex-col justify-center items-center py-6 border-4 border-solid">
       <h3 className="text-lg font-bold">Enter Your Information</h3>
         <p className="">Enter Your Name:</p>
         <input
