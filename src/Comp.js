@@ -8,37 +8,30 @@ export default function Comp() {
   const [password, setPassword] = useState("");
 
   const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
+    return email.includes("@") && email.includes('.com');
   };
 
   const validatePassword = (password) => {
-    const hasCapital = /[A-Z]/.test(password);
-    const hasNumber = /\d/.test(password);
-    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    let hasCapital=false;
+    let hasNumber=false;
+    let hasSymbol=false;
+
+    for (let char of password) {
+      if (char >= 'A' && char <= 'Z') {
+        hasCapital = true;
+      } else if (char >= '0' && char <= '9') {
+        hasNumber = true;
+      } else if (char.includes('!'&&'@'&&'#'&&'$'&&'%'&&'&')) {
+        hasSymbol = true;
+      }
+    }
     return { hasCapital, hasNumber, hasSymbol };
   };
 
   const passwordValidation = validatePassword(password);
-  // const Add = () => {
-  //   setCounter((prev) => prev + 5);
-  // };
-  // const Sub = () => {
-  //   setCounter((prev) => prev - 5);
-  // };
-  // const Mul = () => {
-  //   setCounter((prev) => prev * 5);
-  // };
-  // const Div = () => {
-  //   setCounter((prev) => prev / 5);
-  // };
+ 
   return (
     <div className="App">
-      {/* <button onClick={Add}>Add bg 5</button>
-      <button onClick={Div}>Divide by 5</button>
-      <p> {counter} </p>
-      <button onClick={Sub}>Subtract by 5</button>
-      <button onClick={Mul}>Multiply by 5</button> */}
       <p>Enter Your Name:</p>
       <input
         type="text"
