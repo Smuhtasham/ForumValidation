@@ -33,6 +33,10 @@ export default function Comp() {
     passwordValidation.hasNumber &&
     passwordValidation.hasSymbol;
 
+  function Submit() {
+    console.log("working");
+  }
+
   return (
     <div className="">
       <div className="w-[90%] m-auto gap-3 flex flex-col justify-center items-center py-10">
@@ -96,15 +100,17 @@ export default function Comp() {
 
         {isEmailValid && passValidation && isPasswordValid ? (
           <button
-            disabled={true}
-            className="border border-black px-6 bg-sky-400"
+            disabled={false}
+            className="border border-black px-6 bg-sky-600"
+            onClick={Submit}
           >
             Submit
           </button>
         ) : (
           <button
-            disabled={false}
-            className="border border-black px-6 bg-sky-400"
+            disabled={true}
+            className="border border-black px-6 bg-sky-300"
+            onClick={Submit}
           >
             Submit
           </button>
