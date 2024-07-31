@@ -21,18 +21,21 @@ export default function Arrays() {
       address: "123 house street Fsd.",
     },
   ]);
+  console.log({userData})
 
   const Submit = () => {
+   
+
     setUserData([
       ...userData,
-      { id,
+      { id:userData.length+1,
         name,
         email,
         age,
         address,
       },
     ]);
-
+    
     setAddress("");
     setName("");
     setEmail("");
@@ -80,6 +83,7 @@ export default function Arrays() {
           <div id="data">
             {userData.map((val) => (
               <div key={val.id}>
+                <span>{val.id}</span>
                 <span>{val.name}</span> <span>{val.email}</span>{" "}
                 <span onClick={() => HandleDelete(val.id)}>X</span>
               </div>
