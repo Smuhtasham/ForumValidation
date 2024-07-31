@@ -25,13 +25,14 @@ export default function Arrays() {
   const Submit = () => {
     setUserData([
       ...userData,
-      {
+      { id,
         name,
         email,
         age,
         address,
       },
     ]);
+
     setAddress("");
     setName("");
     setEmail("");
