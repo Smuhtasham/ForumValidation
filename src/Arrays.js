@@ -15,13 +15,12 @@ export default function Arrays() {
     },
     {
       id: 2,
-      name: "Muhtasham",
+      name: "Faizan",
       email: "muhtasham00@gmail.com",
       age: "23",
       address: "123 house street Fsd.",
     },
   ]);
-  console.log({userData})
 
   const Submit = () => {
    
@@ -41,6 +40,11 @@ export default function Arrays() {
     setEmail("");
     setAge("");
   };
+  const HandleEdit = (id) =>{
+    const a = prompt("Change your name:");
+    setName(userData[id].name=a);
+    }    
+  
   const HandleDelete = (id) => {
     const filtered = userData.filter((val) => val.id !== id);
     setUserData(filtered);
@@ -81,11 +85,12 @@ export default function Arrays() {
             Submit
           </button>
           <div id="data">
-            {userData.map((val) => (
-              <div key={val.id}>
+            {userData.map((val,index) => (
+              <div key={index}>
                 <span>{val.id}</span>
-                <span>{val.name}</span> <span>{val.email}</span>{" "}
+                <span onClick={()=> HandleEdit(index)}>{val.name}</span> <span>{val.email}</span>{" "}
                 <span onClick={() => HandleDelete(val.id)}>X</span>
+                
               </div>
             ))}
           </div>
