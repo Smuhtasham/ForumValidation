@@ -1,7 +1,12 @@
 
+import Arrays from "./Arrays";
 import Comp from "./Comp";
 
+
 function App() {
-  return <Comp />;
+  return(<>
+  {/* <Comp/> */}
+  <Arrays/>
+  </>)
 }
 export default App;
