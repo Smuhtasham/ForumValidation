@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const Tab2 = (props) => {
+const Tab2 = ({ name }) => {
   return (
     <>
-    <div>
+      <div>
         <div>
-            {props.name}
+          {name.map((name) => (
+            <div>
+              <span>{name}</span></div> ))}
         </div>
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Tab2
+export default Tab2;
