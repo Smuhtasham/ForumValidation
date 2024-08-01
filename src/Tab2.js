@@ -7,7 +7,9 @@ const Tab2 = ({ name }) => {
         <div>
           {name.map((name) => (
             <div>
-              <span>{name}</span></div> ))}
+              <span>{name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </>
